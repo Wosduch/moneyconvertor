@@ -1,0 +1,30 @@
+{
+  "name": "moneyconvertor",
+  "version": "0.1.2",
+  "description": "This is a program to deal with different currencies",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --linux AppImage --win portable",
+    "test": "echo 'OK'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wosduch/moneyconvertor.git"
+  },
+  "keywords": [
+    "convertor",
+    "money",
+    "currency"
+  ],
+  "author": "Ivan Dereviankin",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/Wosduch/moneyconvertor/issues"
+  },
+  "homepage": "https://github.com/Wosduch/moneyconvertor#readme",
+  "devDependencies": {
+    "electron": "^10.1.2",
+    "electron-builder": "^22.8.1"
+  }
+}
