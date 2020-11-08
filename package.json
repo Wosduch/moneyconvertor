@@ -1,11 +1,11 @@
 {
   "name": "moneyconvertor",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "This is a program to deal with different currencies",
   "main": "index.js",
   "scripts": {
     "start": "electron .",
-    "build": "electron-builder --linux AppImage --win portable",
+    "buildbin": "electron-builder --linux AppImage --win portable",
     "test": "echo 'OK'"
   },
   "repository": {
