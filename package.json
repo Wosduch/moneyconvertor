@@ -25,6 +25,9 @@
   "homepage": "https://github.com/Wosduch/moneyconvertor#readme",
   "devDependencies": {
     "electron": "^10.1.2",
-    "electron-builder": "^22.8.1"
+    "electron-builder": "^22.8.1",
+    "bootstrap": "^4.5.2",
+    "jquery": "^3.5.1",
+    "popper.js": "^1.16.1"
   }
 }
