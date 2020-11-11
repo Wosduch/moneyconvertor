@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- End-->
+
+    <!-- Title -->
+    <title>MoneyConvertor</title>
+    <!-- End -->
+
+    <!-- Libs (Bootstrap, Jquery) -->
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script>const $ = require("jquery");</script>
+    <script>require("popper.js")</script>
+    <script>require("bootstrap")</script>
+    <!-- End -->
+
+    <!-- Built-in styles -->
+    <style>
+        /* Some styles "just for beauty" */
+        body {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .outer-container {
+            min-width: 251px;
+            width: 30%;
+        }
+
+        .dropdown-item:hover {
+            cursor: pointer;
+        }
+
+        /* First dropdown's scroll cuustomization */
+        .first.dropdown-menu {
+            max-height: 200px;
+            overflow: auto;
+        }
+
+        .first.dropdown-menu::-webkit-scrollbar-track {
+            border-radius: 4px;
+        }
+
+        .first.dropdown-menu::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .first.dropdown-menu::-webkit-scrollbar-thumb {
+            border-radius: 4px;
+            background: #f0f2f5;
+        }
+
+        .first.dropdown-menu:hover::-webkit-scrollbar-thumb {
+            background: #6a7d9b;
+        }
+
+        /* Second dropdown's scroll cuustomization */
+        .second.dropdown-menu {
+            max-height: 200px;
+            overflow: auto;
+        }
+
+        .second.dropdown-menu::-webkit-scrollbar-track {
+            border-radius: 4px;
+        }
+
+        .second.dropdown-menu::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .second.dropdown-menu::-webkit-scrollbar-thumb {
+            border-radius: 4px;
+            background: #f0f2f5;
+        }
+
+        .second.dropdown-menu:hover::-webkit-scrollbar-thumb {
+            background: #6a7d9b;
+        }
+
+        /*first dropdown search*/
+        .dropdown-search{
+        	justify-self:center;
+        	width: 95%;
+        	margin-top: 5px;
+        	margin-bottom: 5px;
+        }
+    </style>
+    <!-- End -->
+</head>
+
+<body>
+    <!-- Content -->
+    <div class="card outer-container">
+        <div class="card-header bg-success text-white">MoneyConvertor</div>
+        <div class="card-body main-container">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <button type="button" class="first btn btn-outline-secondary dropdown-toggle"
+                        data-toggle="dropdown">UAH</button>
+                    <div class="first dropdown-menu">
+                        <!-- Dynamic content -->
+                    </div>
+                </div>
+                <input type="number" class="first-input form-control" placeholder="0" oninput="fromFirstToSecond()" />
+            </div>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <button type="button" class="second btn btn-outline-secondary dropdown-toggle"
+                        data-toggle="dropdown">UAH</button>
+                    <div class="second dropdown-menu">
+                        <!-- Dynamic content -->
+                    </div>
+                </div>
+                <input type="number" class="second-input form-control" placeholder="0" oninput="fromSecondToFirst()">
+            </div>
+        </div>
+    </div>
+    <!-- end -->
+
+    <!-- Built-in scripts -->
+    <script>
+
+        // fetching data for UNB
+        let data;
+        fetch("https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json").then((res) => {
+            if (res.status == 200) {
+                res.json().then((json) => {
+                    data = json;
+                    let date = new Date();
+                    data.push({
+                        r030: 980,
+                        txt: "Гривня",
+                        rate: 1,
+                        cc: "UAH",
+                        exchangedate: `${date.getDate()}.${(date.getMonth() + 1).toString().length == 1 ? "0" + (date.getMonth() + 1).toString() : (date.getMonth() + 1).toString()}.${date.getFullYear()}`
+                    })
+
+                    console.log(data)
+
+                    //let html1 = `<input type="text" class="dropdown-search first-search form-control" placeholder="Search" />`;
+                    let html1 = "";
+                    let html2 = "";
+
+                    // ToDo: refactor to make it DRY
+                    json.forEach((el) => {
+                        html1 = html1 + `<span class="first dropdown-item" onclick="changeDropdownValue(this)">${el.cc}</span>`
+                    });
+                    json.forEach((el) => {
+                        html2 = html2 + `<span class="second dropdown-item" onclick="changeDropdownValue(this)">${el.cc}</span>`
+                    });
+
+
+                    document.querySelector(".first.dropdown-menu").innerHTML = html1;
+                    document.querySelector(".second.dropdown-menu").innerHTML = html2;
+
+                    data.getCurrency = function (name) {
+                        for (let it = 0; it < data.length; it++) {
+                            // ToDo: Refactor with more if's
+                            if (data[it].cc != name) {
+                                continue;
+                            }
+                            return data[it];
+                        }
+                    }
+                })
+            } else {
+                // ToDo: Use Bootstrap's alert for error
+                alert("Error: " + res.status.toString() + " " + res.status)
+            }
+        })
+
+		//ToDo: REFACTORING!!!!!!!!!!!!!!!!!!!!!!!!!
+        function fromFirstToSecond() {
+            let firstInput = document.querySelector(".first-input"),
+                secondInput = document.querySelector(".second-input"),
+                firstDropdown = document.querySelector(".first.btn"),
+                secondDropdown = document.querySelector(".second.btn");
+
+            if (firstInput.value == "")
+                secondInput.value = "";
+            else {
+                secondInput.value = Math.round((firstInput.value * data.getCurrency(firstDropdown.innerText).rate / data.getCurrency(secondDropdown.innerText).rate) * 100) / 100
+            }
+        }
+
+        function fromSecondToFirst() {
+            let firstInput = document.querySelector(".first-input"),
+                secondInput = document.querySelector(".second-input"),
+                firstDropdown = document.querySelector(".first.btn"),
+                secondDropdown = document.querySelector(".second.btn");
+
+            if (secondInput.value == "")
+                firstInput.value = "";
+            else {
+                firstInput.value = Math.round((secondInput.value * data.getCurrency(secondDropdown.innerText).rate / data.getCurrency(firstDropdown.innerText).rate) * 100) / 100
+            }
+        }
+        // realization of selection
+        function changeDropdownValue(element) {
+            element.parentElement.parentElement.children[0].innerText = element.innerText;
+
+            //recounting
+            if (element.classList.contains("first")) {
+                fromFirstToSecond()
+            } else if (element.classList.contains("second")) {
+                fromSecondToFirst()
+            }
+        }
+    </script>
+    <!-- End -->
+</body>
+
+</html>
