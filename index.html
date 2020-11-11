@@ -94,6 +94,14 @@
         .second.dropdown-menu:hover::-webkit-scrollbar-thumb {
             background: #6a7d9b;
         }
+
+        /*first dropdown search*/
+        .dropdown-search{
+        	justify-self:center;
+        	width: 95%;
+        	margin-top: 5px;
+        	margin-bottom: 5px;
+        }
     </style>
     <!-- End -->
 </head>
@@ -133,7 +141,7 @@
         // fetching data for UNB
         let data;
         fetch("https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json").then((res) => {
-            if (res.ok) {
+            if (res.status == 200) {
                 res.json().then((json) => {
                     data = json;
                     let date = new Date();
@@ -147,6 +155,7 @@
 
                     console.log(data)
 
+                    //let html1 = `<input type="text" class="dropdown-search first-search form-control" placeholder="Search" />`;
                     let html1 = "";
                     let html2 = "";
 
@@ -178,6 +187,7 @@
             }
         })
 
+		//ToDo: REFACTORING!!!!!!!!!!!!!!!!!!!!!!!!!
         function fromFirstToSecond() {
             let firstInput = document.querySelector(".first-input"),
                 secondInput = document.querySelector(".second-input"),
@@ -206,9 +216,11 @@
         // realization of selection
         function changeDropdownValue(element) {
             element.parentElement.parentElement.children[0].innerText = element.innerText;
-            if (element.parentElement.parentElement.children[0].innerText === document.querySelector(".first.btn")) {
+
+            //recounting
+            if (element.classList.contains("first")) {
                 fromFirstToSecond()
-            } else if (element.parentElement.parentElement.children[0].innerText === document.querySelector(".second.btn")) {
+            } else if (element.classList.contains("second")) {
                 fromSecondToFirst()
             }
         }
