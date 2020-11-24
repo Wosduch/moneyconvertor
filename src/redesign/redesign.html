@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="new.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoneyConvertor</title>
+</head>
+
+<body>
+    
+    <div class="main-menu">
+        <div class="logo-name">MoneyConvertor</div>
+        <div class="logo-container">
+            <img class="logo" src="sand-money.png" />
+            <div class="rounder"></div>
+        </div>
+        <hr noshade color="white" class="menu-divider" />
+        <ul class="menu-items">
+            <li class="menu-item-current"></a><img src="home.svg" class="icons" />
+                <div class="menu-item-text">Головна</div>
+            </li>
+            <li><a href="#" class="menu-item"><img src="prediction.svg" class="icons" />
+                    <div class="menu-item-text">Прогнози</div>
+                </a></li>
+            <li><a href="#" class="menu-item"><img src="analis.svg" class="icons" />
+                    <div class="menu-item-text">Аналіз</div>
+                </a></li>
+        </ul>
+        <a href="#" class="settings"><img class="logo-icon" src="settings_icon.png" />
+            <div class="settings-text">Налаштування</div>
+        </a>
+    </div>
+    <div class="main-container">
+        <div class="card">
+            <div class="complex-input" style="margin-bottom: 1rem;">
+                <button class="dropdown-button" data-current-currency="UAH">
+                    Українська гривня - UAH
+                    <div class="dropdown-list">
+                        <!-- Dynamic content -->
+                    </div>
+                </button>
+                <input type="number" placeholder="0,00" class="money-input" />
+            </div>
+            <div class="complex-input" style="margin-bottom: 1rem;">
+                <button class="dropdown-button">
+                    Українська гривня - UAH
+                    <div class="dropdown-list">
+                        <!-- Dynamic content -->
+                    </div>
+                </button>
+                <input type="number" placeholder="0,00" class="money-input" />
+            </div>
+        </div>
+        <script src="./remake.js"></script>
+</body>
+
+</html>
