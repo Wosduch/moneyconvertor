@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    
+
     <div class="main-menu">
         <div class="logo-name">MoneyConvertor</div>
         <div class="logo-container">
@@ -34,23 +34,23 @@
     </div>
     <div class="main-container">
         <div class="card">
-            <div class="complex-input" style="margin-bottom: 1rem;">
+            <div class="first complex-input" style="margin-bottom: 1rem;">
                 <button class="dropdown-button" data-current-currency="UAH">
-                    Українська гривня - UAH
+                    <span class="dropdown-title">Українська гривня - UAH</span>
                     <div class="dropdown-list">
                         <!-- Dynamic content -->
                     </div>
                 </button>
-                <input type="number" placeholder="0,00" class="money-input" />
+                <input type="number" placeholder="0,00" class="money-input" oninput="countCurrency(this)" />
             </div>
-            <div class="complex-input" style="margin-bottom: 1rem;">
-                <button class="dropdown-button">
-                    Українська гривня - UAH
+            <div class="second complex-input" style="margin-bottom: 1rem;">
+                <button class="dropdown-button" data-current-currency="UAH">
+                    <span class="dropdown-title">Українська гривня - UAH</span>
                     <div class="dropdown-list">
                         <!-- Dynamic content -->
                     </div>
                 </button>
-                <input type="number" placeholder="0,00" class="money-input" />
+                <input type="number" placeholder="0,00" class="money-input" oninput="countCurrency(this)" />
             </div>
         </div>
         <script src="./remake.js"></script>
