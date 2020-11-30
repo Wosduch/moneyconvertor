@@ -1,0 +1,281 @@
+@font-face {
+    font-family: "opensans";
+    src: url("./fonts/OpenSans-Regular.ttf");
+}
+
+html,
+body {
+    font-family: "opensans";
+    padding: 0px;
+    margin: 0px;
+    background-color: #EAF1C0;
+}
+
+.main-menu {
+    color: white;
+    padding-top: 1rem;
+    background-color: #2E7D00;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    width: 15%;
+    top: 0px;
+    left: 0px;
+    box-shadow: 0px 0px 20px 0px rgba(128, 128, 128, 1);
+}
+
+.logo-container {
+    border-radius: 50%;
+    width: 65%;
+    align-self: center;
+    background-color: white;
+    position: relative;
+    box-shadow: 0px 0px 20px 0px rgba(128, 128, 128, 0.2);
+}
+
+.logo {
+    width: 80%;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -40%;
+    margin-top: -23%;
+}
+
+.rounder {
+    padding-top: 100%;
+    width: 100%;
+}
+
+.logo-name {
+    align-self: center;
+    font-size: 1.75vw;
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.menu-divider {
+    width: 90%;
+}
+
+.settings {
+    color: white;
+    text-decoration: none;
+    transition: all 0.5s;
+    padding: 0.5rem 0.5rem;
+    margin-top: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.logo-icon {
+    margin-right: 5px;
+    width: 1.8vw;
+    transition: all 0.5s;
+}
+
+.settings:hover .logo-icon {
+    transition: all 0.5s;
+    transform: rotate(180deg);
+}
+
+.settings:hover {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.5;
+    background-color: #316A00;
+}
+
+.settings-text {
+    font-size: 1.5vw;
+}
+
+.menu-items {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-item {
+    text-decoration: none;
+    color: white;
+    transition: all 0.5s;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    font-size: 1.75vw;
+    padding: 0.5rem 1rem;
+    list-style-type: none;
+}
+
+.menu-item-current {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    font-size: 1.75vw;
+    padding: 0.5rem 1rem;
+    list-style-type: none;
+    background-color: #105000;
+}
+
+.menu-item:hover {
+    text-decoration: none;
+    color: white;
+    background-color: #316A00;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+.icons {
+    width: 1.8vw;
+    margin-right: 0.7rem;
+}
+
+.main-container{
+    width: 100%;
+    margin-left: 15%;
+    width: 85%;
+    padding: 1rem 0em;
+    display: flex;
+    justify-content: space-around;
+}
+
+.card{
+    width: 60%;
+    border: 1px lightgray solid;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px 0px rgba(128, 128, 128, 0.2);
+    background-color: white;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.money-input{
+    display: block;
+    padding: 5px 0px;
+    border: 0px;
+    border-bottom: 1px solid gray;
+    margin-left: 10px;
+    font-size: 20px;
+}
+.money-input:focus{
+    outline: none;
+}
+
+.dropdown-button{
+    fill: #2E7D00;
+    padding: 5px 5px;
+    display: block;
+    transition: all 0.5s;
+    text-align: center;
+    border: 1px solid #2E7D00;
+    color: #2E7D00;
+    background-color: white;
+    border-radius: 10px;
+    position: relative;
+    font-size: 16px;
+}
+
+.dropdown-button:hover{
+    transition: all 0.5s;
+    background-color: #2E7D00;
+    color: white;
+    fill: white;
+    cursor: pointer;
+}
+
+.dropdown-button:focus{
+    outline: none;
+    transition: all 0.5s;
+    background-color:#105000;
+    color: white;
+    fill: white;
+    cursor: pointer;
+}
+
+.dropdown-list{
+    top: 35px;
+    /*left: 0px;*/
+    transform: translate(-30%);
+    width: 70vw;
+    height: 30vw;
+    background-color: white;
+    color: black;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    border: 1px solid lightgrey;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px 0px rgba(128, 128, 128, 0.2);
+    cursor: default;
+    position: absolute;
+    display: none;
+    font-size: 1rem;
+    overflow: auto;
+    z-index: 100;
+}
+
+.complex-input{
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.dropdown-item{
+    transition: all .5s;
+    flex-basis: 25%;
+    padding: 5px 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-content: center;
+}
+
+.dropdown-item:hover{
+    transition: all .2s;
+    background-color: #2E7D00;
+    color: white;
+    cursor: pointer;
+}
+
+#analytics{
+    fill: white;
+    width: 2vw;
+    height: 2vw;
+    margin-right: .7rem;
+    margin-bottom: -.2vw;
+}
+
+.dropdown-arrow{
+    transition: transform .2s;
+    height: 16px;
+    width: 16px;
+    margin-bottom: -2.5px;
+}
+
+.dropdown-button:focus .dropdown-arrow{
+    transition: transform .2s;
+    transform: rotate(180deg);
+}
+
+.dropdown-search{
+    display: block;
+    width: 100%;
+    margin: 5px 5px;
+}
