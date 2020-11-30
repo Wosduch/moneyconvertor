@@ -58,7 +58,7 @@ fetch("https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json").then(
                     data.sort((first, second) => {
                         return first.txt.localeCompare(second.txt, "uk");
                     });
-                    let html = "";
+                    let html = ``;
                     data.forEach((el, i, arr) => {
                         if (el.cc.toLowerCase()[0] === "x") {
                             el.txt = el.txt + " (в грамах)"
@@ -88,7 +88,7 @@ function changeCurrency(elem) {
     parent.blur();
     let currency = getByCC(elem.dataset.thisCurrency);
     parent.dataset.currentCurrency = currency.cc;
-    parent.children[0].innerText = `${currency.txt} - ${currency.cc}`;
+    parent.children[0].children[0].innerText = `${currency.txt} - ${currency.cc}`;
     countCurrency(parent.parentNode.children[1])
 }
 
