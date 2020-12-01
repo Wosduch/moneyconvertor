@@ -5,7 +5,7 @@
   "main": "./src/main.js",
   "scripts": {
     "start": "electron .",
-    "buildbin": "electron-builder --linux AppImage --win portable",
+    "build": "electron-builder --linux AppImage --win portable",
     "test": "echo 'OK'"
   },
   "repository": {
