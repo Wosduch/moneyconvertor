@@ -82,7 +82,7 @@ Instructions for building on other platforms are provided in the [electron-build
 
 ### Contributing
 
-New ideas and suggestions or bug / problem notifications can be added to [Issues](https://github.com/Wosduch/moneyconvertor/issues). Commits and pool requests are also welcome.
+New ideas and suggestions or bug/problem notifications can be added to [Issues](https://github.com/Wosduch/moneyconvertor/issues). Commits and pool requests are also welcome.
 
 ### License
 
@@ -90,7 +90,7 @@ MoneyConvertor is developed on the principles of open source software. Also, thi
 
 #### Distributing
 
-Anyone can distribute this program under the terms of the GNU GPL v3 license. Anyone can also modify and distribute the modified program (subject to the use of the GNU GPL v3 license for the modified software).
+Everyone can distribute this program under the terms of the GNU GPL v3 license. Everybody can also modify and distribute the modified program (subject to the use of the GNU GPL v3 license for the modified software).
 
 #### Denial of responsibility
 
