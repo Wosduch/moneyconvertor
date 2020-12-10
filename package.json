@@ -1,12 +1,24 @@
 {
   "name": "moneyconvertor",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "This is a program to deal with different currencies",
   "main": "./src/main.js",
   "scripts": {
     "start": "electron .",
     "build": "electron-builder --linux AppImage --win portable",
-    "test": "echo 'OK'"
+    "test": "echo 'OK'",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "build": {
+    "appId": "com.electron.moneyconvertor",
+    "win": {
+      "target": ["nsis", "portable"],
+      "icon": "./src/img/sand-money.png"
+    },
+    "linux": {
+      "target": ["deb", "rpm", "pacman", "tar.gz", "AppImage"],
+      "category": ["Utility"]
+    }
   },
   "repository": {
     "type": "git",
@@ -23,6 +35,9 @@
     "url": "https://github.com/Wosduch/moneyconvertor/issues"
   },
   "homepage": "https://github.com/Wosduch/moneyconvertor#readme",
+  "dependencies": {
+    "update-electron-app": "^2.0.1"
+  },
   "devDependencies": {
     "electron": "^10.1.2",
     "electron-builder": "^22.8.1"
