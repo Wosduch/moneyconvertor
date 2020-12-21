@@ -1,0 +1,26 @@
+<div class="card">
+    <div class="first complex-input" style="margin-bottom: 1rem;">
+        <button class="dropdown-button" data-current-currency="UAH">
+            <span class="dropdown-title">
+                <span class="dropdown-title-text">Українська гривня - UAH</span>
+                <%- include("./svg/dropdownArrorView.svg.ejs") %>
+            </span>
+            <div class="dropdown-list">
+                <!-- Dynamic content -->
+            </div>
+        </button>
+        <input type="number" placeholder="0,00" class="money-input" oninput="countCurrency(this)" />
+    </div>
+    <div class="second complex-input" style="margin-bottom: 1rem;">
+        <button class="dropdown-button" data-current-currency="UAH">
+            <span class="dropdown-title">
+                <span class="dropdown-title-text">Українська гривня - UAH</span>
+                <%- include("./svg/dropdownArrorView.svg.ejs") %>
+            </span>
+            <div class="dropdown-list">
+                <!-- Dynamic content -->
+            </div>
+        </button>
+        <input type="number" placeholder="0,00" class="money-input" oninput="countCurrency(this)" />
+    </div>
+</div>
