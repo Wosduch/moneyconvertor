@@ -1,6 +1,6 @@
 <h1 align="center">MoneyConvertor</h1>
 <p align="center">
-  <img src="./src/img/sand-money.png" />
+  <img src="./img/sand-money.png" />
 </p>
 
 MoneyConvertor — додаток з відкритим вихідним кодом, призначенний для спрощення операцій вивчення та аналізу ситуації на валютному ринку
